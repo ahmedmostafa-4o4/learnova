@@ -49,7 +49,7 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: white;
   color: var(--foreground);
   font-family: "Nunito", sans-serif;
   transition: 0.2s linear !important;

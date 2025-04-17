@@ -14,7 +14,6 @@ export default function Nav() {
   };
 
   useEffect(() => {
-    // This code runs only on the client
     const handleScroll = () => {
       setScroll(window.scrollY > 0);
     };
