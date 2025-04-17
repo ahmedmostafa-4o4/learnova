@@ -50,7 +50,7 @@ html {
 
 body {
   background: white;
-  color: var(--foreground);
+  color: black;
   font-family: "Nunito", sans-serif;
   transition: 0.2s linear !important;
 }
