@@ -1,8 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton:wght@400;600;700&display=swap");
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #459fd9;
+  --secondary: #718bab;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @theme inline {
@@ -19,8 +29,100 @@
   }
 }
 
+#logo {
+  background-blend-mode: difference;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: "Anton", serif;
+  margin-bottom: 1rem;
+  & span {
+    color: var(--secondary);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  transition: 0.2s linear !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", sans-serif;
+  transition: 0.2s linear !important;
+}
+
+.home {
+  background-image: url("/images/home.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 50;
+  transition: all 0.3s ease-in-out;
+  background: var(--background);
+  box-shadow: var(--box-shadow);
+}
+
+.overlay.open {
+  display: none;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: var(--background);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+.sidebar::-webkit-scrollbar-thumb:active {
+  background-color: var(--primary);
+}
+
+.sidebar::-webkit-scrollbar-corner {
+  background-color: var(--background);
+}
+
+.sidebar::-webkit-scrollbar-button {
+  background-color: var(--background);
+}
+
+.sidebar::-webkit-scrollbar-track-piece {
+  background-color: var(--background);
 }
