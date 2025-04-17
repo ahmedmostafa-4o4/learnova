@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
@@ -12,13 +12,16 @@ export default function Nav() {
     setOpen(!open);
     document.body.classList.toggle("overflow-hidden");
   };
-  window.onscroll = () => {
-    if (window.scrollY > 0) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  };
+
+  useEffect(() => {
+    // This code runs only on the client
+    const handleScroll = () => {
+      setScroll(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className={`nav ${scroll ? `bg-white shadow-md` : ``}  `}>
       <nav
